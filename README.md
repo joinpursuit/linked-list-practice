@@ -62,3 +62,13 @@ You will
   - `clear` the linked list
   - `toArray`convert data from linked list to an array
   - `containsDuplicates` check for duplicates - return true if contains duplicates, false if not
+
+## Bonus
+
+Build a doubly-linked list with all the same methods
+
+## Super Bonus
+
+JavaScript `class` syntax is syntactic sugar - that means it is a newer easier to read/write syntax that does the same thing as an older syntax.
+
+[Start Here](https://github.com/joinpursuit/Pursuit-Core-Web/blob/master/data-structures-%26-algorithms/linked-lists/lesson-notes/README3.md)
