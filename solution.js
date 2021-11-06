@@ -32,40 +32,44 @@ class LinkedList {
   }
 
   delete(input) {
-    // let current = this.head;
-    // let prev = null;
-    // if (current !== null && current.data === input) {
-    //   head = current.next;
-    //   return;
-    // }
-
-    // while (current !== null && current.data !== input) {
-    //   prev = current;
-
-    //   current = current.next;
-    // }
-    // if (current.data === input) {
-    //   prev.next = current.next;
-    // }
-
+    // deleting by value
     if (this.length === 0) return;
-    this.length--;
     let current = this.head;
-    if (input <= 0) {
-      this.head = this.head.next;
-    } else if (input >= this.length - 1) {
-      while (current.next.next !== null) {
-        current = current.next;
-      }
-      current.next = null;
-    } else {
-      let i = 0;
-      while (i < input) {
-        current = current.next;
-        i++;
-      }
-      current.next = current.next.next;
+    let prev = null;
+    if (current !== null && current.data === input) {
+      head = current.next;
+      return;
     }
+
+    while (current !== null && current.data !== input) {
+      prev = current;
+
+      current = current.next;
+    }
+    if (current.data === input) {
+      prev.next = current.next;
+    }
+    this.length--;
+
+    // deleting by index
+    // if (this.length === 0) return;
+    // this.length--;
+    // let current = this.head;
+    // if (input <= 0) {
+    //   this.head = this.head.next;
+    // } else if (input >= this.length - 1) {
+    //   while (current.next.next !== null) {
+    //     current = current.next;
+    //   }
+    //   current.next = null;
+    // } else {
+    //   let i = 0;
+    //   while (i < input) {
+    //     current = current.next;
+    //     i++;
+    //   }
+    //   current.next = current.next.next;
+    // }
   }
 
   getFirst() {
@@ -117,20 +121,15 @@ class LinkedList {
     let arr = [];
     let current = this.head;
     while (current !== null) {
-      // console.log(current)
       arr.unshift(current.data);
-      // console.log("current unshift", current.data);
       current = current.next;
-      // console.log("current reassigned", current)
     }
-   // console.log("arr", arr);
     return arr;
   }
 
   containsDuplicates() {
-    if (!this.head || !this.head.next) {
-      return false;
-    }
+    if (!this.head || !this.head.next) return false;
+  
     let nodes = {};
     let prev = this.head;
     let current = prev.next;
