@@ -12,6 +12,20 @@ class LinkedList {
     this.head = head;
   }
 
+  // insert(data) {
+  //   let newNode = new Node(data);
+  //   if (!this.head) {
+  //     this.head = newNode;
+  //   } else {
+  //     let tail = this.head;
+  //     while (tail.next !== null) {
+  //       tail = tail.next;
+  //     }
+  //     // newNode.next = this.head;
+  //     tail.next = newNode;
+  //   }
+  // }
+
   insert(data) {
     let newNode = new Node(data);
     if (!this.head) {
@@ -91,6 +105,7 @@ class LinkedList {
     }
     return arr;
   }
+
   getKth(k) {
     let count = 0;
     let node = this.head;
@@ -102,6 +117,21 @@ class LinkedList {
       node = node.next;
     }
     return 0;
+  }
+
+  getKthToLast(k) {
+    let node = this.head;
+    let count = 0;
+    while (node !== null) {
+      node = node.next;
+      count++;
+    }
+    if (count < k) return;
+    node = this.head;
+    for (let i = 1; i < count - k + 1; i++) {
+      node = node.next;
+    }
+    return node.data;
   }
 
   containsDuplicates() {
@@ -138,6 +168,8 @@ for (let i = 0; i < words.length; i++) {
 console.log(wordsList.getKth(2));
 
 console.log(wordsList);
+
+console.log(wordsList.getKthToLast(1));
 
 module.exports = {
   Node,
