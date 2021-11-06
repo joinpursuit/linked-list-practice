@@ -92,9 +92,9 @@ class LinkedList {
   }
 
   getKth(K) {
-    if (K === 1) return this.tail;
+    //if (K === 1) return this.tail;
     let current = this.head;
-    for (let i = 0; i <= this.length - K; i++) {
+    for (let i = 1; i <= this.length - K; i++) {
       current = current.next;
     }
     return current;
