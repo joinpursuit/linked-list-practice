@@ -107,31 +107,19 @@ class LinkedList {
   }
 
   getKth(k) {
-    let count = 0;
     let node = this.head;
-    while (node !== null) {
-      if (count === k) {
-        return node.data;
-      }
-      count++;
+    for (let i = 1; i < k; i++) {
       node = node.next;
     }
-    return 0;
+    return node;
   }
 
   getKthToLast(k) {
     let node = this.head;
-    let count = 0;
-    while (node !== null) {
-      node = node.next;
-      count++;
-    }
-    if (count < k) return;
-    node = this.head;
-    for (let i = 1; i < count - k + 1; i++) {
+    for (let i = 1; i < this.size() - k; i++) {
       node = node.next;
     }
-    return node.data;
+    return node;
   }
 
   containsDuplicates() {
