@@ -63,16 +63,18 @@ class LinkedList {
     return node;
   }
   getKth(k) {
-    let count = 0;
+    let count = 1;
     let node = this.head;
-    while (node !== null) {
-      if (count === k) {
-        return node.data;
-      }
-      count++;
+    while (count < k) {
       node = node.next;
+      count++;
     }
-    return 0;
+    return node;
+    // let node = this.head;
+    // for (let i = 1; i < k; i++) {
+    //   node = node.next;
+    // }
+    // return node;
   }
   getKthToLast(indx) {
     let node = this.head;
@@ -83,10 +85,10 @@ class LinkedList {
     }
     if (count < indx) return;
     node = this.head;
-    for (let i = 1; i < count - indx + 1; i++) {
+    for (let i = 1; i < count - indx; i++) {
       node = node.next;
     }
-    return node.data;
+    return node;
   }
   isEmpty() {
     let node = this.head;
@@ -154,7 +156,6 @@ for (let i = 0; i < nums.length; i++) {
 // console.log(numList.search(3));
 console.log(numList.getKthToLast(2));
 console.log(numList.containsDuplicates());
-
 
 module.exports = {
   Node,
