@@ -87,13 +87,14 @@ class LinkedList {
   }
 
   isEmpty() {
-    let count = 0;
+    // let count = 0;
     let node = this.head;
-    while (node) {
-      count++;
-      node = node.next;
-    }
-    return count === 0;
+    // while (node) {
+    //   count++;
+    //   node = node.next;
+    // }
+    // return count === 0;
+    return node ? false : true;
   }
 
   toArray() {
