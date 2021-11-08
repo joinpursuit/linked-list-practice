@@ -126,6 +126,22 @@ class LinkedList {
 
     return arr;
   }
+
+  clear() {
+    return (this.head = null);
+  }
+
+  containsDuplicates() {
+    let curr = this.head;
+    let obj = {};
+
+    while (curr) {
+      obj[curr.data] = obj[curr.data] ? obj[curr.data] + 1 : 1;
+      curr = curr.next;
+    }
+
+    return Object.values(obj).some((num) => num > 1);
+  }
 }
 
 module.exports = {
