@@ -11,7 +11,7 @@ const words = [
   "lazy",
   "dog",
 ];
-
+ 
 module.exports = {
   nums,
   words,
