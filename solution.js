@@ -133,19 +133,19 @@ class LinkedList {
 	}
 
 	// containsDuplicates check for duplicates - return true if contains duplicates, false if not
-	containsDuplicates() {
-		let node = this.head;
-		let currEl = node;
-		if (this.isEmpty()) return false;
+	// containsDuplicates() {
+	// 	let node = this.head;
+	// 	let currEl = node;
+	// 	if (this.isEmpty()) return false;
 
-		while (node.next !== null) {
-			//currEl compared to rest of the stack
-			if (currEl === node || currEl === node.next.data) return true;
+	// 	while (node.next !== null) {
+	// 		//currEl compared to rest of the stack
+	// 		if (currEl === node || currEl === node.next.data) return true;
 
-			node = node.next;
-		}
-		return false;
-	}
+	// 		node = node.next;
+	// 	}
+	// 	return false;
+	// }
 }
 
 // get the data from each array and create the nodes
