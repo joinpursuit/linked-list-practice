@@ -1,7 +1,6 @@
 const { Node, LinkedList } = require("../solution.js");
 
 const { nums, words } = require("../data/data.js");
-const { exportAllDeclaration, logicalExpression } = require("@babel/types");
 
 describe("Linked Lists", () => {
   let wordList, numList;
@@ -37,16 +36,21 @@ describe("Linked Lists", () => {
   });
 
   test("Delete from the linked list by key", () => {
-    numList.delete(10);
-    expect(numList.size()).toEqual(10);
+    const tempNumList = new LinkedList();
+    for (let num of nums) {
+      tempNumList.insert(num);
+    }
+
+    tempNumList.delete(10);
+    expect(tempNumList.size()).toEqual(10);
   });
 
   test("Retrieve the first element", () => {
-    expect(wordList.getFirst().data).toEqual("dog");
+    expect(wordList.getLast().data).toEqual("dog");
   });
 
   test("Retrieve the last element", () => {
-    expect(wordList.getLast().data).toEqual("the");
+    expect(wordList.getFirst().data).toEqual("the");
   });
 
   test("Find an element by key", () => {
@@ -54,11 +58,13 @@ describe("Linked Lists", () => {
   });
 
   test("Retrieve kth element", () => {
-    expect(numList.getKth(1).data).toEqual(0);
+    expect(numList.getKth(1).data).toEqual(1);
+    expect(wordList.getKth(2).data).toEqual("quick");
   });
 
   test("Retrieve kth from last element", () => {
-    expect(numList.getKthToLast(1).data).toEqual(2);
+    expect(numList.getKthToLast(1).data).toEqual(0);
+    expect(wordList.getKthToLast(2).data).toEqual("lazy");
   });
 
   test("Check if list is empty", () => {
@@ -77,7 +83,19 @@ describe("Linked Lists", () => {
   });
 
   test("Convert data from linked lists into an array", () => {
-    expect(numList.toArray()).toEqual([0, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]);
+    expect(wordList.toArray()).toEqual([
+      "the",
+      "quick",
+      "brown",
+      "fox",
+      "jumps",
+      "over",
+      "the",
+      "lazy",
+      "dog",
+    ]);
+
+    expect(numList.toArray()).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0]);
   });
 
   test("Check for duplicates", () => {
