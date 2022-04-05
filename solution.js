@@ -17,23 +17,43 @@ class LinkedList {
     
     let node = this.head 
     
-    //insert at the beginning for when we're starting from scratch OR when there's already data
-    if (node == null || node.data > value) {
-      newNode.next = node
-      this.head = newNode
-    }
-    
-    //insert in the middle and end... 
-    while(node) {
-      if (node.data < value && node.next == null) {
-        let temp = node.next
-        node.next = newNode
-        newNode.next = temp
-      }
-      node = node.next
-    }
+    //for numList
+    if (typeof value === "number") {
 
-    return this.head
+      //insert at the beginning for when we're starting from scratch OR when there's already data
+      if (node == null || node.data > value) {
+        newNode.next = node
+        this.head = newNode
+      }
+      
+      //insert in the end... 
+      while(node) {
+        if (node.data < value && node.next == null) {
+          let temp = node.next
+          node.next = newNode
+          newNode.next = temp
+        }
+        node = node.next
+      }
+      return this.head
+    } else {
+      //insert at the beginning for when we're starting from scratch OR when there's already data
+      if (node == null) {
+        // newNode.next = node
+        this.head = newNode
+      }
+      console.log(node)
+      //insert in the end... 
+      while(node) {
+        if (node.next == null) {
+          // let temp = node.next
+          node.next = newNode
+          newNode.next = null
+        }
+        node = node.next
+      }
+      return this.head
+    }
 
   }
 
@@ -48,7 +68,6 @@ class LinkedList {
     }
 
     return counter
-
   }
 
   delete(value) {
@@ -68,6 +87,23 @@ class LinkedList {
       }
     }
   }
+
+  getFirst() {
+    let node = this.head 
+
+    while (node) {
+      if (node.next == null) {
+        return node
+      }
+      node = node.next
+    }
+  }
+
+  getLast() {
+    let node = this.head 
+    return node
+  }
+
 }
 
 
