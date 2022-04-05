@@ -12,8 +12,12 @@ class LinkedList {
     this.head = null
   }
 
-  insert(){
+  insert(data){
     const node = new Node(data)
+
+    if(this.head === null){
+      this.head = node
+    }
   }
 }
 
