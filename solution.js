@@ -1,4 +1,4 @@
-const { nums, words } = require("./data/data.js");
+// const { nums, words } = require("./data/data.js");
 
 class Node{
   constructor(data = null, next = null){
@@ -17,9 +17,18 @@ class LinkedList {
 
     if(this.head === null){
       this.head = node
+    } else {
+      node.next = this.head
+      this.head = node
     }
   }
+
+ 
 }
+
+const someList = new LinkedList(10)
+
+console.log(someList.size())
 
 module.exports = {
   Node,
