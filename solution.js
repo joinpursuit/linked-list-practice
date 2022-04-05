@@ -38,7 +38,16 @@ class LinkedList {
     let node = this.head
     if(node.data === data){
       this.head = this.head.next
+      return true
     }
+    while(node !== null){
+      if(node.next.data === data){
+        node.next = node.next.next
+        return true
+      }
+      node = node.next
+    }
+    return false
   }
  
 }
