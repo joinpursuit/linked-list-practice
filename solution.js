@@ -11,6 +11,10 @@ class LinkedList {
   constructor(){
     this.head = null
   }
+
+  insert(){
+    const node = new Node(data)
+  }
 }
 
 module.exports = {
