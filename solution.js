@@ -1,4 +1,4 @@
-// const { nums, words } = require("./data/data.js");
+const { nums, words } = require("./data/data.js");
 
 class Node{
   constructor(data = null, next = null){
@@ -35,14 +35,20 @@ class LinkedList {
   }
 
   delete(data){
+    let node = this.head
+    if(node.data === data){
+      this.head = this.head.next
+    }
   }
  
 }
 
-const someList = new LinkedList(10)
+
+
+// const someList = new LinkedList(10)
 // someList.insert(5)
 
-console.log(someList.size())
+// console.log(someList.size())
 
 module.exports = {
   Node,
