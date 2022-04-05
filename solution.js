@@ -23,10 +23,14 @@ class LinkedList {
     }
   }
 
+  size(){
+
+  }
  
 }
 
 const someList = new LinkedList(10)
+// someList.insert(5)
 
 console.log(someList.size())
 
