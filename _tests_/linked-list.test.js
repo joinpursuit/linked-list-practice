@@ -1,7 +1,6 @@
 const { Node, LinkedList } = require("../solution.js");
 
 const { nums, words } = require("../data/data.js");
-const { exportAllDeclaration, logicalExpression } = require("@babel/types");
 
 describe("Linked Lists", () => {
   let wordList, numList;
@@ -68,12 +67,8 @@ describe("Linked Lists", () => {
   });
 
   test("Clear the linked list", () => {
-    let tempNumList = new LinkedList();
-    for (let num of nums) {
-      tempNumList.insert(num);
-    }
-    tempNumList.clear();
-    expect(tempNumList.head).toEqual(null);
+    numList.clear();
+    expect(numList.head).toEqual(null);
   });
 
   test("Convert data from linked lists into an array", () => {
