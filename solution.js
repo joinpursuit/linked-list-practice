@@ -33,6 +33,9 @@ class LinkedList {
 
     return counter
   }
+
+  delete(data){
+  }
  
 }
 
