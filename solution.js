@@ -50,6 +50,24 @@ class LinkedList {
     return counter
 
   }
+
+  delete(value) {
+    let currNode = this.head
+    if (currNode.data === value) {
+      this.head = currNode.next 
+    }
+
+    while (currNode) {
+      if (currNode.next) {
+        if (currNode.next.data === value) {
+          currNode.next = currNode.next.next
+          return this.head
+        } else {
+          currNode = currNode.next
+        }
+      }
+    }
+  }
 }
 
 
