@@ -8,7 +8,9 @@ class Node{
 }
 
 class LinkedList {
-
+  constructor(){
+    
+  }
 }
 
 module.exports = {
