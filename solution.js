@@ -70,6 +70,9 @@ class LinkedList {
     return currentNode
   }
  
+  getKthToLast(){
+    
+  }
 }
 
 
