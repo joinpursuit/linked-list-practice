@@ -165,6 +165,44 @@ class LinkedList {
     }
   }
 
+  isEmpty() {
+    return !this.head
+  }
+
+  clear() {
+    this.head = null
+  }
+
+  toArray() {
+    let node = this.head;
+    let newArr = [node?.data]
+
+    while (node) {
+      if (node.next !== null) {
+        newArr.unshift(node.next.data)
+      }
+      node = node.next
+    }
+    return newArr
+  }
+
+  containsDuplicates() {
+    let node = this.head;
+    let newArr = [node?.data]
+
+    while (node) {
+      if (node.next !== null) {
+        if (newArr.includes(node.next.data)) {
+          return true
+        } else {
+          newArr.unshift(node.next.data)
+        }
+      }
+      node = node.next
+    }
+    return false
+  }
+
 }
 
 
