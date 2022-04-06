@@ -55,7 +55,11 @@ class LinkedList {
   }
 
   getLast(){
-    
+    let currentNode = this.head.next
+      while(currentNode.next !== null){
+        currentNode = currentNode.next
+      }
+      return currentNode
   }
   
  
