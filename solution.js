@@ -70,8 +70,14 @@ class LinkedList {
     return currentNode
   }
  
-  getKthToLast(){
-    
+  getKthToLast(number){
+    let currentNode = this.head
+    const index = this.size() - number
+    for(let i = index-1; i > 0; i--){
+      currentNode = currentNode.next
+    }
+    return currentNode
+
   }
 }
 
