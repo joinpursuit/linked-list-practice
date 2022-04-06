@@ -140,6 +140,31 @@ class LinkedList {
     } 
   }
 
+  getKthToLast(value) {
+    let node = this.head
+    let size = this.size()
+
+    if (value === 0) {
+      return node 
+    }
+
+    let i = size 
+
+    while (node) {
+      if (node.next == null) {
+        if (value === size - 1) {
+          return node
+        }
+      } else {
+        if (size - value === i) {
+          return node 
+        }
+      }
+      i--
+      node = node.next
+    }
+  }
+
 }
 
 
