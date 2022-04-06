@@ -62,6 +62,9 @@ class LinkedList {
       return currentNode
   }
   
+  getKth(data){
+    
+  }
  
 }
 
