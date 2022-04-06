@@ -61,6 +61,9 @@ class LinkedList {
       }
       return currentNode
   }
+
+  search(data){
+  }
   
   getKth(index){
     let currentNode = this.head
