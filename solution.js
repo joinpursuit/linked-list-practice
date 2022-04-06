@@ -1,4 +1,4 @@
-const { nums, words } = require("./data/data.js");
+// const { nums, words } = require("./data/data.js");
 
 class Node{
   constructor(data = null, next = null){
@@ -48,6 +48,10 @@ class LinkedList {
       node = node.next
     }
     return false
+  }
+
+  getFirst(){
+    return this.head
   }
  
 }
