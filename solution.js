@@ -81,7 +81,12 @@ class LinkedList {
   }
 
   isEmpty(){
+    if(this.head === null){
+      return true
+    } 
+    return false
   }
+
 
   
 }
