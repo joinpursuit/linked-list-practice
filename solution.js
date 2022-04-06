@@ -91,6 +91,9 @@ class LinkedList {
     this.head = null
   }
   
+  toArray(){
+    
+  }
 }
 
 
