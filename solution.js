@@ -103,6 +103,24 @@ class LinkedList {
   }
 
   containsDuplicates(){
+    //have array
+    const array = []
+    const length = this.size()
+    //a loop
+    let currentNode = this.head
+    for(let i = 0; i < length; i++){
+      //array.includes(data) -> return true
+      if(array.includes(currentNode.data)){
+        return true
+      }else {
+        //put data in array
+        array.push(currentNode.data)
+        currentNode = currentNode.next
+      }
+    }
+
+    // false
+    return false
   }
 }
 
