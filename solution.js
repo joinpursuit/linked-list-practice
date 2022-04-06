@@ -92,7 +92,14 @@ class LinkedList {
   }
   
   toArray(){
-    
+    let linkedListArr = []
+    const length = this.size()
+    let currentNode = this.head
+    for(let i = 0; i < length; i++){
+      linkedListArr.push(currentNode.data)
+      currentNode = currentNode.next
+    }
+    return linkedListArr
   }
 }
 
