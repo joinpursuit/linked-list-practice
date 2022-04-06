@@ -101,6 +101,9 @@ class LinkedList {
     }
     return linkedListArr
   }
+
+  containsDuplicates(){
+  }
 }
 
 
