@@ -98,21 +98,21 @@ class LinkedList {
 
   //2nd to from last
   getKthToLast(data) {
-    return [];
-    // console.log(data);
-    // console.log(this.size());
-    //  let position = this.size() - data;
-    // console.log(Number(position));
-    // console.log(position);
-    // let node = this.head;
-    // console.log(node);
-    // let counter = 1;
-    // while (counter < position) {
-    //   counter++;
-    //   node.next = node;
-    // }
-    // console.log(node);
-    // return node;
+    // return [];
+    console.log(data);
+    console.log(this.size());
+    let position = this.size() - data;
+    console.log(Number(position));
+    console.log(position);
+    let node = this.head;
+    console.log(node);
+    let counter = 1;
+    while (counter < position) {
+      counter++;
+      node = node.next;
+    }
+    console.log(node);
+    return node;
   }
 
   isEmpty() {
@@ -124,7 +124,7 @@ class LinkedList {
   }
 
   clear() {
-    this.head = null;
+    return (this.head = null);
   }
 
   toArray() {
@@ -142,26 +142,32 @@ class LinkedList {
 
   containsDuplicates() {
     let linkedListArrayed = this.toArray();
-    let node = this.head;
-
-    while (node.data) {
-      // console.log(node);
-      if (linkedListArrayed.includes(node.data)) {
-        return true;
-      } else {
-        // console.log(node.next);
-        node = node.next;
-      }
-    }
-    return false;
+    // console.log(linkedListArrayed);
+    let removeDuplicates = [...new Set(linkedListArrayed)];
+    // console.log(removeDuplicates);
+    if (linkedListArrayed.length === removeDuplicates.length) {
+      return false;
+    } else return true;
+    // let node = this.head;
+    // while (node.data) {
+    //   // console.log(node);
+    //   if (linkedListArrayed.includes(node.data)) {
+    //     return true;
+    //   } else {
+    //     // console.log(node.next);
+    //     node = node.next;
+    //   }
+    // }
+    // return false;
   }
 }
 
-// wordList = new LinkedList();
-// for (let word of words) {
-//   wordList.insert(word);
-// }
+wordList = new LinkedList();
+for (let word of words) {
+  wordList.insert(word);
+}
 
+// console.log(wordList.containsDuplicates());
 // numsList = new LinkedList();
 // for (let number of nums) {
 //   numsList.insert(number);
