@@ -87,7 +87,9 @@ class LinkedList {
     return false
   }
 
-
+  clear(){
+    this.head = null
+  }
   
 }
 
