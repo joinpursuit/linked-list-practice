@@ -2,7 +2,7 @@ const { nums, words } = require("./data/data.js");
 
 class Node {
   constructor(data, next) {
-    this.data = data || null;
+    this.data = typeof data === "number" ? data >= 0 ? data : null : data || null;
     this.next = next || null;
   }
 }
@@ -21,32 +21,32 @@ class LinkedList {
     if (typeof value === "number") {
 
       //insert at the beginning for when we're starting from scratch OR when there's already data
-      if (node == null || node.data > value) {
-        newNode.next = node
-        this.head = newNode
+      if (node == null) {
+          this.head = newNode
       }
-      
       //insert in the end... 
       while(node) {
-        if (node.data < value && node.next == null) {
+        // check for zero first to ensure proper order, then check for rest
+        if ((value === 0 && node.data > value && node.next == null) || node.data < value && node.next == null) {
           let temp = node.next
           node.next = newNode
           newNode.next = temp
-        }
+        } 
+    
         node = node.next
       }
       return this.head
     } else {
+      //for wordList
+
       //insert at the beginning for when we're starting from scratch OR when there's already data
       if (node == null) {
-        // newNode.next = node
         this.head = newNode
       }
-      console.log(node)
+
       //insert in the end... 
       while(node) {
         if (node.next == null) {
-          // let temp = node.next
           node.next = newNode
           newNode.next = null
         }
@@ -102,6 +102,42 @@ class LinkedList {
   getLast() {
     let node = this.head 
     return node
+  }
+
+  search(value) {
+    let node = this.head
+
+    while (node) {
+      if (node.data === value) {
+        return node 
+      }
+      node = node.next
+    }
+  }
+
+  getKth(value) {
+    let node = this.head 
+    let size = this.size()
+
+    if (value === size) {
+      return node
+    }
+
+    let i = size
+    
+    while (node) {
+      if (node.next == null) {
+        if (value === 1) {
+          return node
+        }
+      } else {
+        if (i === value) {
+          return node
+        }
+      }
+      i-- 
+      node = node.next
+    } 
   }
 
 }
