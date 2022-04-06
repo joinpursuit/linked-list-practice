@@ -1,23 +1,27 @@
 const { nums, words } = require('./data/data.js');
 
 class Node {
-  constructor(data = null, next = null) {
+  constructor(data, prev = null, next = null) {
     this.data = data;
+    this.prev = prev;
     this.next = next;
   }
 }
 class LinkedList {
-  constructor(head) {
-    this.head = head || null;
+  constructor() {
+    this.head = null;
+    this.tail = null;
   }
 
   insert(data) {
     const newNode = new Node(data);
     if (!this.head) {
       this.head = newNode;
+      this.tail = newNode;
     } else {
       let temp = this.head;
       this.head = newNode;
+      temp.prev = this.head;
       this.head.next = temp;
     }
   }
@@ -25,7 +29,7 @@ class LinkedList {
   size() {
     let count = 0;
     let current = this.head;
-    while (current != null) {
+    while (current !== null) {
       count++;
       current = current.next;
     }
@@ -36,9 +40,20 @@ class LinkedList {
     let current = this.head;
 
     while (current !== null) {
-      if (current.next.data === target) {
-        const deleted = current.next;
-        current.next = current.next.next;
+      if (current.data === target) {
+        const deleted = current;
+        if (deleted === this.head) {
+          this.head = current.next;
+          this.head.prev = null;
+          current.next.prev = current.prev;
+        } else if (deleted === this.tail) {
+          this.tail = current.prev;
+          this.tail.next = null;
+          current.prev.next = current.next;
+        } else {
+          current.prev.next = current.next;
+          current.next.prev = current.prev;
+        }
         return deleted;
       }
       current = current.next;
@@ -51,19 +66,12 @@ class LinkedList {
   }
 
   getLast() {
-    let current = this.head;
-    while (current != null) {
-      if (current.next === null) {
-        return current;
-      }
-      current = current.next;
-    }
-    return current;
+    return this.tail;
   }
 
   search(target) {
     let current = this.head;
-    while (current != null) {
+    while (current !== null) {
       if (current.data === target) {
         return current;
       }
@@ -86,14 +94,14 @@ class LinkedList {
   }
 
   getKthToLast(num) {
-    let current = this.head;
-    let count = this.size();
+    let current = this.tail;
+    let count = 0;
     while (current !== null) {
-      count--;
       if (num === count) {
         return current;
       }
-      current = current.next;
+      count++;
+      current = current.prev;
     }
     return null;
   }
@@ -101,7 +109,7 @@ class LinkedList {
   toArray() {
     let resArr = [];
     let current = this.head;
-    while (current != null) {
+    while (current !== null) {
       resArr.push(current.data);
       current = current.next;
     }
@@ -109,7 +117,7 @@ class LinkedList {
   }
 
   isEmpty() {
-    return this.head === null;
+    return this.head ? false : true;
   }
 
   clear() {
@@ -129,6 +137,11 @@ class LinkedList {
     }
     return false;
   }
+}
+
+const exampleList = new LinkedList();
+for (let num of nums) {
+  exampleList.insert(num);
 }
 
 module.exports = {
