@@ -12,11 +12,25 @@ class LinkedList{
   constructor(head = null){
     this.head = head;
   }
-  insert(){
 
+  insert(value){
+    let newNode = new Node(value);
+    if (!this.head) {
+        this.head = newNode;
+    } else {
+        newNode.next = this.head;
+        this.head = newNode;
+    }
   }
-  size(){
 
+  size(){
+    let count = 0;
+    let temp = this.head;
+    while(temp){
+      count++;
+      temp = temp.next;
+    }
+    return count;
   }
 
   delete(){
@@ -24,14 +38,19 @@ class LinkedList{
   }
 
   getFirst(){
-
+      return this.head;
   }
 
   getLast(){
   
   }
-  search(){
-
+  search(value){
+      let temp = this.head
+      while(temp){
+        if(temp.data === value){
+          return temp;
+      }
+    }
   }
   getKth(){
 
@@ -40,19 +59,21 @@ class LinkedList{
 
   }
   isEmpty(){
-
-  }
+    if(!this.head){
+      return true
+    } else {
+      return false;
+    }
+  };
   clear(){
-
+      this.head = null;
   }
   toArray(){
 
   }
   containsDuplicates(){
-    
+
   }
-
-
 }
 
 module.exports = {
