@@ -79,6 +79,11 @@ class LinkedList {
     return currentNode
 
   }
+
+  isEmpty(){
+  }
+
+  
 }
 
 
