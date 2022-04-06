@@ -62,8 +62,12 @@ class LinkedList {
       return currentNode
   }
   
-  getKth(data){
-    
+  getKth(index){
+    let currentNode = this.head
+    for(let i = index-1; i > 0; i--){
+      currentNode = currentNode.next
+    }
+    return currentNode
   }
  
 }
