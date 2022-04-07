@@ -3,6 +3,8 @@ const words = [
   "the",
   "quick",
   "brown",
+  "the",
+  "the",
   "fox",
   "jumps",
   "over",
@@ -10,7 +12,7 @@ const words = [
   "lazy",
   "dog",
 ];
-const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0];
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 0];
 
 class Node {
   constructor(data, next = null) {
@@ -146,6 +148,23 @@ class LinkedList {
   }
   containsDuplicates() {
     let temp = this.head;
+    let object = {};
+    while(temp){
+      console.log(temp.data)
+      object[temp.data] = (object[temp.data] || 0) + 1;
+      temp = temp.next;
+    }
+    console.log(object)
+    for(let key in object){
+      console.log(key);
+      console.log(object[key]);
+
+      if(object[key] > 1){ 
+        console.log(key, "duplicates")
+        return true;
+      }
+    }
+    return false;
   }
 }
 
@@ -159,7 +178,8 @@ for (let word of words) {
 for (let num of nums) {
   numList.insert(num);
 }
-numList.containsDuplicates();
+// console.log(numList.containsDuplicates());
+console.log(list.containsDuplicates())
 //numList.getKth(1)
 // console.log(list.getLast());
 //list.search("dog");
