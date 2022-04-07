@@ -1,11 +1,11 @@
 const { Node, LinkedList } = require("../solution.js");
 
 const { nums, words } = require("../data/data.js");
-const { exportAllDeclaration, logicalExpression } = require("@babel/types");
+// const { exportAllDeclaration, logicalExpression } = require("@babel/types");
 
 describe("Linked Lists", () => {
   let wordList, numList;
-  beforeAll(() => {
+  beforeEach(() => {
     wordList = new LinkedList();
     for (let word of words) {
       wordList.insert(word);
