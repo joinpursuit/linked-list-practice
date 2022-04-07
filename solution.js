@@ -21,6 +21,7 @@ class LinkedList {
       this.head = node;
     }
   }
+
   size() {
     let count = 0;
     let node = this.head;
@@ -30,6 +31,7 @@ class LinkedList {
     }
     return count;
   }
+
   delete(val) {
     let prevalue = this.head;
     let currvalue = prevalue.next;
@@ -48,7 +50,44 @@ class LinkedList {
       }
     }
   }
-  
+
+  getFirst() {
+    return this.head
+  }
+
+  getLast() {
+    let node = this.head;
+    while(node.next) {
+      node = node.next;
+    }
+    return node;
+  }
+
+  search(val) {
+    let node = this.head;
+    while(node) {
+      if(node.data === val) {
+        return node;
+      } else {
+        node = node.next;
+      }
+    }
+  }
+
+  getKth(index) {
+    let node = this.head;
+    if(index === 1) {
+      return node;
+    } else {
+      let count = 1;
+      while(count <= index) {
+        count++;
+        node = node.next;
+      }
+      return node;
+    }
+  }
+
 }
 
 
