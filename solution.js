@@ -90,7 +90,12 @@ class LinkedList {
 
   }
   isEmpty(){
-
+    //return this.head === null;
+    if(this.head === null){
+      return true;
+    }else{
+      return false;
+    }
   }
   clear(){
 
@@ -111,7 +116,7 @@ for (let word of words) {
 }
 
 // console.log(list.getLast());
-list.search("dog");
+//list.search("dog");
 module.exports = {
   Node,
   LinkedList,
