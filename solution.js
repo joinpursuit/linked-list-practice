@@ -11,60 +11,62 @@ class LinkedList {
   constructor(head = null) {
     this.head = head;
   }
-  insert(data){
+  insert(data) {
     let newNode = new Node(data);
-    if(!this.head){
+    if (!this.head) {
       this.head = newNode;
     } else {
       newNode.next = this.head;
       this.head = newNode;
     }
   }
-  size(){
-    let count = 0
+  size() {
+    let count = 0;
     let node = this.head;
-    while(node){
+    while (node) {
       count++;
       node = node.next;
     }
     return count;
   }
-  delete(){
-    if ((this.head === null))
+  delete() {
+    if (this.head === null)
       throw new Error("Error: The current linked list is empty");
-    
+
     let temp = this.head;
     this.head = this.head.next;
     return temp.data;
   }
-  getFirst(){
-    
+  getFirst() {
+    return this.head;
   }
-  getLast(){
-    
-  }
-  search(key){
+  getLast() {
+    if (!this.head) {
+      return null;
+    }
     let node = this.head;
-    while(node !== null && node.data !== key){
+    while (node) {
+      if (!node.next) {
+        return node;
+      }
+      node = node.next;
+    }
+  }
+  search(key) {
+    let node = this.head;
+    while (node !== null && node.data !== key) {
       node = node.next;
     }
     return node;
   }
-  getKthToLast(){
-
+  getKth(){}
+  getKthToLast() {}
+  isEmpty() {}
+  clear() {
+    this.head = null
   }
-  isEmpty(){
-
-  }
-  clear(){
-
-  }
-  toArray(){
-
-  }
-  containsDuplicates(){
-
-  }
+  toArray() {}
+  containsDuplicates() {}
 }
 
 module.exports = {
