@@ -142,10 +142,11 @@ class LinkedList {
       array.push(temp.data);
       temp = temp.next;
     }
-    console.log(array)
     return array;
   }
-  containsDuplicates() {}
+  containsDuplicates() {
+    let temp = this.head;
+  }
 }
 
 let list = new LinkedList();
@@ -158,27 +159,15 @@ for (let word of words) {
 for (let num of nums) {
   numList.insert(num);
 }
+numList.containsDuplicates();
 //numList.getKth(1)
 // console.log(list.getLast());
 //list.search("dog");
 //numList.getKthToLast(3);
 //numList.clear()
-numList.toArray();
+//numList.toArray();
 
 module.exports = {
   Node,
   LinkedList,
 };
-
-// //first create a new node to insert the value// the Node i
-// let newNode = new Node(value);
-// // console.log(util.inspect(newNode, true, 10));
-//  console.log(newNode);
-// // console.log(newNode, "head",this.head);
-// console.log(newNode.next);
-// console.log(this.head);
-// newNode.next = this.head; //
-// this.head = newNode;
-// console.log("next",this.head);
-
-// //this.head = new Node(data, this.head)
