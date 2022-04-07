@@ -84,7 +84,6 @@ class LinkedList {
     }
     return searchedFor
   }
-  //const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0];
   getKth(num){
     //how do i keep track of the elements??
     //need a count
@@ -94,7 +93,7 @@ class LinkedList {
     let kthNode = null;
     //console.log(this.head);
     while(temp){
-      count++
+      count++;
       if(count === num){
         //console.log(temp.data,"whaddup")
         kthNode = temp;
@@ -104,8 +103,24 @@ class LinkedList {
     }
     return kthNode;
   }
-  getKthToLast(){
-
+  //const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0];
+  getKthToLast(num){
+    //console.log(this.size());
+    let kthToLastNum = this.size() - num;
+    let kthToLastNode = null;
+    let count = 0;
+    //console.log(kthToLastNum);
+    let temp = this.head;
+    //console.log(temp)
+    while(temp){
+      count++;
+      if(kthToLastNum === count){
+        //console.log(temp,"yo")
+        kthToLastNode = temp;
+      }
+      temp = temp.next;
+    }
+    return kthToLastNode;
   }
   isEmpty(){
     if(this.head === null){
@@ -135,10 +150,10 @@ for (let word of words) {
 for(let num of nums){
   numList.insert(num)
 }
-numList.getKth(1)
+//numList.getKth(1)
 // console.log(list.getLast());
 //list.search("dog");
-
+numList.getKthToLast(3);
 module.exports = {
   Node,
   LinkedList,
