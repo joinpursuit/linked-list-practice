@@ -12,8 +12,14 @@ class LinkedList{
     this.head = head;
   };
 // Methods
-  insert(){
-
+  insert(data){
+    let newNode = new Node(data);
+    if(!this.head){
+      this.head = newNode;
+    } else{
+      newNode.next = this.head;
+      this.head = newNode;
+    };
   };
 
   size(){
