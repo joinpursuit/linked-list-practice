@@ -1,4 +1,15 @@
-const { nums, words } = require("./data/data.js");
+//const { nums, words } = require("./data/data.js");
+const words = [
+  "the",
+  "quick",
+  "brown",
+  "fox",
+  "jumps",
+  "over",
+  "the",
+  "lazy",
+  "dog",
+];
 
 class Node {
   constructor(data, next = null){
@@ -58,8 +69,19 @@ class LinkedList {
       }
     }
   }
-  search(){
-
+  //"the", "quick", "brown", "fox", "jumps", "over", "the", "lazy","dog",
+  search(key){
+    if(!this.head) return null;
+    let temp = this.head;
+    let searchedFor = null;
+    while(temp){
+      if(temp.data === key){
+        console.log(`hey this is a searched-key: ${temp.data}`);
+        searchedFor = temp;
+      }
+      temp = temp.next;
+    }
+    return searchedFor
   }
   getKth(){
 
@@ -81,19 +103,15 @@ class LinkedList {
   }
 }
 
-// let list = new LinkedList();
-// list.insert(1);
-// list.insert(2);
-//list.insert(nodeTwo)
-// console.log(list);
-// console.log(util.inspect(list, true, 10))
-//const nums1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0]; 
-// let numList = new LinkedList();
-// for (let word of words) {
-//   list.insert(word);
-// }
+let list = new LinkedList();
 
-// console.log(list.getLast())
+// console.log(util.inspect(list, true, 10))
+for (let word of words) {
+  list.insert(word);
+}
+
+// console.log(list.getLast());
+list.search("dog");
 module.exports = {
   Node,
   LinkedList,
