@@ -10,6 +10,7 @@ const words = [
   "lazy",
   "dog",
 ];
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0];
 
 class Node {
   constructor(data, next = null){
@@ -83,14 +84,30 @@ class LinkedList {
     }
     return searchedFor
   }
-  getKth(){
-
+  //const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0];
+  getKth(num){
+    //how do i keep track of the elements??
+    //need a count
+    //loop through the linkedList
+    let temp = this.head;
+    let count = 0;
+    let kthNode = null;
+    //console.log(this.head);
+    while(temp){
+      count++
+      if(count === num){
+        //console.log(temp.data,"whaddup")
+        kthNode = temp;
+      }
+      //console.log(temp)
+      temp = temp.next;
+    }
+    return kthNode;
   }
   getKthToLast(){
 
   }
   isEmpty(){
-    //return this.head === null;
     if(this.head === null){
       return true;
     }else{
@@ -109,14 +126,19 @@ class LinkedList {
 }
 
 let list = new LinkedList();
-
+let numList = new LinkedList();
 // console.log(util.inspect(list, true, 10))
 for (let word of words) {
   list.insert(word);
 }
 
+for(let num of nums){
+  numList.insert(num)
+}
+numList.getKth(1)
 // console.log(list.getLast());
 //list.search("dog");
+
 module.exports = {
   Node,
   LinkedList,
