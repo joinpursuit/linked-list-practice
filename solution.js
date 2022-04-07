@@ -13,36 +13,36 @@ const words = [
 const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0];
 
 class Node {
-  constructor(data, next = null){
+  constructor(data, next = null) {
     this.data = data;
     this.next = next;
   }
 }
 
 class LinkedList {
-  constructor(head = null){
+  constructor(head = null) {
     this.head = head;
   }
-  insert (value){
+  insert(value) {
     this.head = new Node(value, this.head);
   }
-  size (){
+  size() {
     let count = 0;
     let temp = this.head;
-    while(temp){
+    while (temp) {
       count++;
       temp = temp.next;
     }
     return count;
   }
-  delete(key){
+  delete(key) {
     let temp = this.head;
     let prev = null;
-    while(temp){
-      if(temp.data === key){
-        if(prev === null){
+    while (temp) {
+      if (temp.data === key) {
+        if (prev === null) {
           this.head = temp.next;
-        }else{
+        } else {
           prev.next = temp.next;
         }
         return temp.data;
@@ -52,39 +52,39 @@ class LinkedList {
     }
     return temp.data;
   }
-  getFirst(){
+  getFirst() {
     return this.head;
   }
-  getLast(){
-    if(!this.head) {
+  getLast() {
+    if (!this.head) {
       return null;
     }
     let temp = this.head;
-    while(temp){
-      if(temp.next === null){
+    while (temp) {
+      if (temp.next === null) {
         return temp;
       }
       temp = temp.next;
-      if(temp.next === null) {
-        return temp
+      if (temp.next === null) {
+        return temp;
       }
     }
   }
   //"the", "quick", "brown", "fox", "jumps", "over", "the", "lazy","dog",
-  search(key){
-    if(!this.head) return null;
+  search(key) {
+    if (!this.head) return null;
     let temp = this.head;
     let searchedFor = null;
-    while(temp){
-      if(temp.data === key){
+    while (temp) {
+      if (temp.data === key) {
         console.log(`hey this is a searched-key: ${temp.data}`);
         searchedFor = temp;
       }
       temp = temp.next;
     }
-    return searchedFor
+    return searchedFor;
   }
-  getKth(num){
+  getKth(num) {
     //how do i keep track of the elements??
     //need a count
     //loop through the linkedList
@@ -92,9 +92,9 @@ class LinkedList {
     let count = 0;
     let kthNode = null;
     //console.log(this.head);
-    while(temp){
+    while (temp) {
       count++;
-      if(count === num){
+      if (count === num) {
         //console.log(temp.data,"whaddup")
         kthNode = temp;
       }
@@ -104,7 +104,7 @@ class LinkedList {
     return kthNode;
   }
   //const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0];
-  getKthToLast(num){
+  getKthToLast(num) {
     //console.log(this.size());
     let kthToLastNum = this.size() - num;
     let kthToLastNode = null;
@@ -112,9 +112,9 @@ class LinkedList {
     //console.log(kthToLastNum);
     let temp = this.head;
     //console.log(temp)
-    while(temp){
+    while (temp) {
       count++;
-      if(kthToLastNum === count){
+      if (kthToLastNum === count) {
         //console.log(temp,"yo")
         kthToLastNode = temp;
       }
@@ -122,22 +122,22 @@ class LinkedList {
     }
     return kthToLastNode;
   }
-  isEmpty(){
-    if(this.head === null){
+  isEmpty() {
+    if (this.head === null) {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
-  clear(){
+  clear() {
+    //console.log(this.head);
+    this.head.next = null;
+    this.head = null;
+  }
+  toArray() {
 
   }
-  toArray(){
-
-  }
-  containsDuplicates(){
-
-  }
+  containsDuplicates() {}
 }
 
 let list = new LinkedList();
@@ -147,27 +147,28 @@ for (let word of words) {
   list.insert(word);
 }
 
-for(let num of nums){
-  numList.insert(num)
+for (let num of nums) {
+  numList.insert(num);
 }
 //numList.getKth(1)
 // console.log(list.getLast());
 //list.search("dog");
-numList.getKthToLast(3);
+//numList.getKthToLast(3);
+numList.clear()
 module.exports = {
   Node,
   LinkedList,
 };
 
-    // //first create a new node to insert the value// the Node i
-    // let newNode = new Node(value);
-    // // console.log(util.inspect(newNode, true, 10));
-    //  console.log(newNode);
-    // // console.log(newNode, "head",this.head);
-    // console.log(newNode.next);
-    // console.log(this.head);
-    // newNode.next = this.head; //
-    // this.head = newNode;
-    // console.log("next",this.head);
+// //first create a new node to insert the value// the Node i
+// let newNode = new Node(value);
+// // console.log(util.inspect(newNode, true, 10));
+//  console.log(newNode);
+// // console.log(newNode, "head",this.head);
+// console.log(newNode.next);
+// console.log(this.head);
+// newNode.next = this.head; //
+// this.head = newNode;
+// console.log("next",this.head);
 
-    // //this.head = new Node(data, this.head)
+// //this.head = new Node(data, this.head)
