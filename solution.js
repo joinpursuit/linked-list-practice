@@ -103,7 +103,6 @@ class LinkedList {
     }
     return kthNode;
   }
-  //const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0];
   getKthToLast(num) {
     //console.log(this.size());
     let kthToLastNum = this.size() - num;
@@ -134,8 +133,17 @@ class LinkedList {
     this.head.next = null;
     this.head = null;
   }
+  //const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0];
   toArray() {
-
+    let array = [];
+    let temp = this.head;
+    //console.log(temp);
+    while(temp){
+      array.push(temp.data);
+      temp = temp.next;
+    }
+    console.log(array)
+    return array;
   }
   containsDuplicates() {}
 }
@@ -154,7 +162,9 @@ for (let num of nums) {
 // console.log(list.getLast());
 //list.search("dog");
 //numList.getKthToLast(3);
-numList.clear()
+//numList.clear()
+numList.toArray();
+
 module.exports = {
   Node,
   LinkedList,
