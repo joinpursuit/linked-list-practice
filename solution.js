@@ -1,5 +1,4 @@
 const { nums, words } = require("./data/data.js");
-// import util from "util"
 
 class Node {
   constructor(data, next = null){
@@ -42,10 +41,22 @@ class LinkedList {
     return temp.data;
   }
   getFirst(){
-
+    return this.head;
   }
   getLast(){
-
+    if(!this.head) {
+      return null;
+    }
+    let temp = this.head;
+    while(temp){
+      if(temp.next === null){
+        return temp;
+      }
+      temp = temp.next;
+      if(temp.next === null) {
+        return temp
+      }
+    }
   }
   search(){
 
@@ -78,11 +89,11 @@ class LinkedList {
 // console.log(util.inspect(list, true, 10))
 //const nums1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0]; 
 // let numList = new LinkedList();
-// for (let num of nums1) {
-//   numList.insert(num);
+// for (let word of words) {
+//   list.insert(word);
 // }
-// console.log(numList)
 
+// console.log(list.getLast())
 module.exports = {
   Node,
   LinkedList,
