@@ -188,7 +188,7 @@ class LinkedList {
 
   containsDuplicates() {
     let node = this.head;
-    let newArr = [node?.data]
+    let newArr = [node.data]
 
     while (node) {
       if (node.next !== null) {
