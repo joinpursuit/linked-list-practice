@@ -13,12 +13,12 @@ class LinkedList {
   }
 
   insert(data) {
-    const node = new Node(data);
+    const newNode = new Node(data);
     if(!this.head){
-      this.head = node;
+      this.head = newNode;
     } else {
-      node.next = this.head;
-      this.head = node;
+      newNode.next = this.head;
+      this.head = newNode;
     }
   }
 
@@ -57,8 +57,12 @@ class LinkedList {
 
   getLast() {
     let node = this.head;
-    while(node.next) {
-      node = node.next;
+    if (!this.head) {
+      return null;
+    } else {
+      while(node.next) {
+        node = node.next;
+      }
     }
     return node;
   }
@@ -98,6 +102,16 @@ class LinkedList {
     }
     return node;
   }
+
+  isEmpty() {
+    return this.head === null;
+  }
+
+  clear() {
+    this.head = null;
+  }
+
+
 
 }
 
