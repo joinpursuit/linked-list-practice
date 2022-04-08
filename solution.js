@@ -12,14 +12,12 @@ class LinkedList{
     this.head = head;
   };
 // Methods
-  insert(data){
-    let newNode = new Node(data);
-    if(!this.head){
-      this.head = newNode;
-    } else{
+  insert(val){
+    let newNode = new Node(val);
+    if(this.head){
       newNode.next = this.head;
-      this.head = newNode;
     };
+    this.head = newNode;
   };
 
   size(){
@@ -72,7 +70,8 @@ class LinkedList{
 
   };
 
-  getKthToLast(){
+  // Input is K 
+  getKthToLast(k){
 
   };
 
@@ -95,10 +94,12 @@ class LinkedList{
   containsDuplicates(){
     
   };
-  
+};
 
-
-}
+let list = new LinkedList();
+list.insert(1);
+list.insert(2);
+list.insert(3);
 
 
 module.exports = {
