@@ -15,36 +15,92 @@ const words = [
 ];
 
 class Node {
-  constructor(data, next = null){
+  constructor(data,next = null){
     this.data = data;
     this.next = next;
   }
 }
 
 class LinkedList {
-  constructor(head = null) {
+  constructor(head = null){
     this.head = head;
-    this.size = 0;
   }
-
-  insert(value){
-    let newNode = new Node(value);
-    newNode.next = this.head; 
-    this.head = newNode;
-  }
+  // insert(value){
+  //   let newNode = new Node(value)
+  //   if(!this.head){
+  //     this.head = newNode
+  //   } else {
+  //     newNode.next = this.head
+  //     this.head = newNode
+  //   }
+    insert(value){
+      let newNode = new Node(value)
+      console.log(newNode)
+      newNode.next = this.head
+      console.log(newNode.next)
+      this.head = newNode
+      console.log(this.head)
+    }
+  
 }
 
-let newLinkedList1 = new LinkedList();
+let node = new Node("lalallaalals")
+let nodeTwo = new Node("blalallalalalalla")
+console.log(node)
+console.log(nodeTwo)
 
-for(let num of nums){
-  // console.log(num)
-  newLinkedList1.insert(num)
-}
+let newLi = new LinkedList(node)
+console.log(newLi)
+let hi = new LinkedList(node)
+console.log(newLi.insert("HIIIIIII"))
 
-let newLinkedList2 = new LinkedList();
-for(let word of words){
-  newLinkedList2.insert(word)
-}
+
+// class Node {
+//   constructor(data){
+//     this.data = data;
+//     this.next = null;
+//   }
+// }
+
+// class LinkedList {
+//   constructor(head = null) {
+//     this.head = head;
+//     this.size = 0;
+//   }
+
+//   insert(value){
+//     let newNode = new Node(value);
+//     newNode.next = this.head; 
+//     this.head = newNode;
+//   }
+
+//   size(value){
+//     let size = 0;
+//     let temp = this.head;
+//     while(temp){
+//       size++
+//       temp = temp.next;
+//     }
+//     return size
+//   }
+
+  // getKthToLast(k){
+  //   console.log(k)
+  //   // length - 11
+  // }
+// }
+
+// let newLinkedList1 = new LinkedList();
+
+// for(let num of nums){
+//   // console.log(num)
+//   newLinkedList1.insert(num)
+// }
+
+// let newLinkedList2 = new LinkedList();
+// for(let word of words){
+//   newLinkedList2.insert(word)
+// }
 
 
 module.exports = {
