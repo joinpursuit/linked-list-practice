@@ -111,14 +111,19 @@ class LinkedList {
     this.head = null;
   }
 
-  toArray() {
+  toArray(useNodes = false) {
     let node = this.head;
     let nodes = [];
     while(node) {
-      nodes.push(node.data);
+      nodes.push(useNodes ? node : node.data);
       node = node.next;
     };
     return nodes;
+  }
+
+  containsDuplicates() {
+    let newArr = this.toArray();
+    return [...new Set(newArr)].length !== newArr.length;
   }
 
 
