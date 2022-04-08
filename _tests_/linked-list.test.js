@@ -55,6 +55,7 @@ describe("Linked Lists", () => {
 
   test("Retrieve kth element", () => {
     expect(numList.getKth(1).data).toEqual(0);
+    expect(numList.getKth(3).data).toEqual(8);
   });
 
   test("Retrieve kth from last element", () => {
@@ -81,7 +82,7 @@ describe("Linked Lists", () => {
   });
 
   test("Check for duplicates", () => {
-    expect(numList.containsDuplicates()).toBe(false);
     expect(wordList.containsDuplicates()).toBe(true);
+    expect(numList.containsDuplicates()).toBe(false);
   });
 });
