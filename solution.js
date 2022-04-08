@@ -76,7 +76,7 @@ class LinkedList{
   };
 
   isEmpty(){
-    if(this.head === null){
+    if(!this.head){
       return true;
     } else{
       return false;
