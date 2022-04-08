@@ -77,7 +77,11 @@ class LinkedList{
   };
 
   isEmpty(){
-
+    if(this.head === null){
+      return true;
+    } else{
+      return false;
+    };
   };
 
   clear(){
