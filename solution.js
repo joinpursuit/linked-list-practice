@@ -13,12 +13,6 @@ class LinkedList {
   }
   insert(data){
     let newNode = new Node(data);
-    // if(!this.head) {
-    //   this.head = newNode;
-    // } else {
-    //   newNode.next = this.head;
-    //   this.head = newNode;
-    // }
     if(this.head){
       newNode.next = this.head;
     }
@@ -34,18 +28,6 @@ class LinkedList {
     return count;
   }
   delete(key) {
-    // let current = this.head;
-    // let counter = 0;
-    // while (current.key !== key && current.next) {
-    //   counter++;
-    //   current = current.next;
-    // }
-    // let foundNode = current;
-    // current = this.head;
-    // for (let i = 1; i < counter; i++) {
-    //   current = current.next;
-    // }
-    // current.next = foundNode.next;
     let current = this.head;
     let prev = null;
     while(current){
@@ -92,22 +74,6 @@ class LinkedList {
     // return current;
   }
   getKthToLast(position) {
-    // let size = 0;
-    // let current = this.head;
-    // while(current){
-    //   current = current.next;
-    //   size++;
-    // }
-    // if(size < position){
-    //   return current;
-    // }
-
-    // current = this.head;
-    // for(let i = 1; i < size - position + 1; i++){
-    //   current = current.next;
-    // }
-    // return current;
-
     let nodeNum = this.size() - position;
     let current = this.head;
     let count = 1;
@@ -118,7 +84,6 @@ class LinkedList {
       count++;
       current = current.next;
     }
-    // return current;
 }
   isEmpty() {
     return this.head === null;
