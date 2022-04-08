@@ -235,8 +235,8 @@ class LinkedList {
     while (node){
       // does it exist in the object?
       if (node.data in obj){
-        // If it already exists in the object, just set the value to `2` so it shows there is more than one.
-        obj[node.data] = 2;
+        // If it already exists in the object, just set the value to `+= 1` so it updates the count.
+        obj[node.data] += 1;
       } else {
         // add individual `node.data` word to empty object as key, with value of 1.
         obj[node.data] = 1;

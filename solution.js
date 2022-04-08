@@ -136,12 +136,12 @@ class LinkedList {
     let obj = {};
     while (node){
       if (node.data in obj){
-        obj[node.data] = 2;
+        obj[node.data] += 1;
       } else {
         obj[node.data] = 1;
       }
       node = node.next;
-    }            
+    }
     return Object.values(obj).includes(2); // boolean
   }
 }
