@@ -88,6 +88,17 @@ class LinkedList {
     }
   }
 
+  getKthToLast(index) {
+    let node = this.head;
+    let count = 1;
+    index = (this.size()-1) - index;
+    while(count <= index) {
+      count++;
+      node = node.next;
+    }
+    return node;
+  }
+
 }
 
 
