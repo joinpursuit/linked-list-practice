@@ -111,6 +111,16 @@ class LinkedList {
     this.head = null;
   }
 
+  toArray() {
+    let node = this.head;
+    let nodes = [];
+    while(node) {
+      nodes.push(node.data);
+      node = node.next;
+    };
+    return nodes;
+  }
+
 
 
 }
