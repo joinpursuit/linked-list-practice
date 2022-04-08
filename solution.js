@@ -36,22 +36,16 @@ class LinkedList {
 	delete(data) {
 		let node = this.head;
 		let counter = 0;
-		// while the data is not === to data and the node.next === truthy value
 		while (node.data !== data && node.next) {
-			// increment the counter
 			counter++;
-			// node is going to next every iteration
 			node = node.next;
 		}
-		// save the node to the foundNode
 		let foundNode = node;
-		// then change the node back to the previous head
+
 		node = this.head;
 		for (let i = 1; i < counter; i++) {
 			node = node.next;
 		}
-		// at this point node is the node to delete 1 back .
-		// so it is skipping the node that has been found because it has foundNode.next
 		node.next = foundNode.next;
 	}
 
@@ -91,10 +85,15 @@ class LinkedList {
 
 	getKthToLast(k) {
 		let current = this.head;
-		for (let i = 2; i <= this.size() - k; i++) {
+		let find = this.size() - k;
+		let count = 1;
+		while (current) {
+			if (count === find) {
+				return current;
+			}
+			count++;
 			current = current.next;
 		}
-		return current;
 	}
 
 	isEmpty() {
@@ -120,11 +119,9 @@ class LinkedList {
 		let current = this.head,
 			obj = {};
 		while (current) {
-			// it is checking if the obj exist if it do it returns true ..
 			if (obj[current.data]) {
 				return true;
 			}
-			// it is adding the obj
 			obj[current.data] = current.data;
 			current = current.next;
 		}
