@@ -32,8 +32,19 @@ class LinkedList{
     return count;
   };
 
-  delete(){
-
+  delete(data){
+    let node = this.head;
+    let counter = 0;
+    while(node.data !== data && node.next){
+      counter ++;
+      node = node.next;
+    };
+    let foundNode = node;
+    node = this.head;
+    for(let i = 1;i < counter;i++){
+      node = node.next;
+    };
+    node.next = foundNode.next;
   };
 
   getFirst(){
