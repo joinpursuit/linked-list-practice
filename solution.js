@@ -52,11 +52,20 @@ class LinkedList{
   };
 
   getLast(){
-
+    let node = this.head;
+    if(!this.head) return null;
+    while(node.next){
+      node = node.next;
+    };
+    return node;
   };
 
-  search(){
-    
+  search(key){
+    let node = this.head;
+    while(node !== null && node.data !== key){
+      node = node.next;
+    };
+    return node;
   };
 
   getKth(){
