@@ -106,7 +106,7 @@ class LinkedList {
     return arr;
   }
 
-  containsDuplicate(value) {
+  containsDuplicate() {
     let arr = [];
     let node = this.head;
     while(node) {
