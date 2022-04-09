@@ -114,7 +114,17 @@ class LinkedList{
   };
 
   containsDuplicates(){
-    
+    let count = {};
+    let node = this.head;
+    while(node){
+      if(!count[node.data]){
+        count[node.data] = 1;
+      } else{
+        return true;
+      };
+      node = node.next;
+    };
+    return false;
   };
 };
 
