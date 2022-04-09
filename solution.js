@@ -1,17 +1,4 @@
-// const { nums, words } = require("./data/data.js");
-const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0];
-
-const words = [
-  "the",
-  "quick",
-  "brown",
-  "fox",
-  "jumps",
-  "over",
-  "the",
-  "lazy",
-  "dog",
-];
+const { nums, words } = require("./data/data.js");
 
 class Node {
   constructor(data, next = null){
@@ -42,9 +29,18 @@ class LinkedList {
     return count;
   }
 
-  // delete() {
-
-  // }
+  delete(k) {
+    if(this.head.data === key) {
+      this.head = this.head.next;
+    }
+    let node = this.head;
+    while(node.next) {
+      if(node.next.data === key) {
+        node.next = node.next.next;
+      }
+    node = node.next;
+    }
+  }
 
   getFirst() {
     return this.head;
@@ -60,18 +56,34 @@ class LinkedList {
 
   search(value) {
     let node = this.head;
-    while(node.data === value) {
+    while(node.data !== value) {
       node = node.next;
     }
     return node;
   }
 
   getKth(index) {
+    let node = this.head;
+    let count = 1;
+    
+    while(count !== index){
+      count++;
+      node = node.next;
+    }
 
+    return node;
   }
 
-  getKthToLast() {
+  getKthToLast(k) {
+    let node = this.head;
+    let count = 1;
+    
+    while(count !== this.size() - k){
+      count++;
+      node = node.next;
+    }
 
+    return node;
   }
 
   isEmpty() {
@@ -87,30 +99,28 @@ class LinkedList {
     let arr = [];
     let node = this.head;
 
-    while(node) {
+    while (node) {
       arr.push(node.data);
       node = node.next;
     }
     return arr;
   }
+
+  containsDuplicate(value) {
+    let arr = [];
+    let node = this.head;
+    while(node) {
+      if(arr.includes(node.data)) {
+        return true;
+      }
+      arr.push(node.data);
+      node = node.next;
+    }
+    return false;
+  }
   
 }
 
-// let LinkedList1 = new LinkedList();
-// for (let num of nums) {
-//   console.log(num)
-//   LinkedList1.insert(num)
-// }
-
-// let LinkedList2 = new LinkedList();
-// for (let word of words) {
-//   LinkedList2.insert(word)
-// }
-
-// console.log(LinkedList1.size());
-// console.log(LinkedList2.size());
-
-// console.log(LinkedList1.toArray(words))
 
 module.exports = {
   Node,
