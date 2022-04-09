@@ -77,34 +77,18 @@ class LinkedList{
     return node;
   };
 
-  // Input is K 
   getKthToLast(k){
-    // k = 1, length = 11, nodeNum = 10
-    // k = 5, length = 11, nodeNum = 6
-    // k = 8, length = 11, nodeNum = 3
     let nodeNum = this.size() - k;
-    
     // Traverse through linked list
-    // let count = 1;
     let count = 1;
     let node = this.head;
-    // let followNode = this.head;
-    // for(let i = 1;i < k;i++){
-    //   if(node === null) return null;
-    //   node = node.next;
-    // };
-    // while(node){
-    //   if(count === nodeNum){
-    //     return node.data;
-    //   }; 
-    //     count++;
-    //     node = node.next;
-    // };
     while(node){
+      if(count === nodeNum){
+        return node;
+      }
+      count++;
       node = node.next;
-      followNode = followNode.next;
     };
-    return followNode;
   };
 
   isEmpty(){
