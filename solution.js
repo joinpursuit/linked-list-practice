@@ -19,6 +19,7 @@ class LinkedList {
     }
     this.head = newNode;
   }
+
   size(){
     let count = 0;
     let current = this.head;
@@ -28,6 +29,7 @@ class LinkedList {
     }
     return count;
   }
+
   delete(key) {
     let current = this.head;
     let prev = null;
@@ -45,9 +47,11 @@ class LinkedList {
     }
     return current.data;
   }
+
   getFirst() {
     return this.head;
   }
+
   getLast() {
     let current = this.head;
     while(current.next){
@@ -55,6 +59,7 @@ class LinkedList {
     }
     return current;
   }
+
   search(key) {
     let current = this.head;
     while(current.data !== key){
@@ -62,6 +67,7 @@ class LinkedList {
     }
     return current;
   }
+
   getKth(position) {
     let current = this.head;
     let count = 1;
@@ -73,6 +79,7 @@ class LinkedList {
       current = current.next;
     }
   }
+
   getKthToLast(position) {
     let nodeNum = this.size() - position;
     let current = this.head;
@@ -84,13 +91,16 @@ class LinkedList {
       count++;
       current = current.next;
     }
-}
+  }
+
   isEmpty() {
     return this.head === null;
   }
+
   clear() {
     return this.head = null;
   }
+
   toArray() {
     let arr = [];
     let current = this.head;
@@ -100,6 +110,7 @@ class LinkedList {
     }
     return arr;
   }
+  
   containsDuplicates() {
     let count = {};
     let current = this.head;
