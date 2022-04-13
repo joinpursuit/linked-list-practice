@@ -99,10 +99,35 @@ class LinkedList{
     return arr;
   }
   containsDuplicates(){
-       let node = this.head;
-      }
+
+  }
+};
+
+// let arr = this.toArray();
+// console.log(arr);
+// let node1 = new Node(1);
+// let node2 = new Node(2);
+// let node3 = new Node(3);
+// node1.next = node2;
+// node2.next = node3;
+
+// let list = new LinkedList(node1);
+// list.containsDuplicates();
 
 module.exports = {
   Node,
   LinkedList,
 };
+
+
+
+// let arr = [];
+// let nextNode = this.head;
+// while (nextNode) {
+//   if (arr.includes(nextNode.data)) {
+//     return true;
+//   }
+//   arr.push(nextNode.data);
+//   nextNode = nextNode.next;
+// }
+// return false;
