@@ -35,6 +35,7 @@ describe("Linked Lists", () => {
   test("Count the length of the linked list", () => {
     expect(numList.size()).toEqual(11);
   });
+  // const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0];
 
   test("Delete from the linked list by key", () => {
     numList.delete(10);

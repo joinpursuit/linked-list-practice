@@ -29,7 +29,7 @@ class LinkedList {
     return count;
   }
 
-  delete(k) {
+  delete(key) {
     if(this.head.data === key) {
       this.head = this.head.next;
     }
@@ -106,7 +106,7 @@ class LinkedList {
     return arr;
   }
 
-  containsDuplicate() {
+  containsDuplicates() {
     let arr = [];
     let node = this.head;
     while(node) {
