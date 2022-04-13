@@ -11,15 +11,26 @@ class LinkedList {
   constructor(head = null) {
     this.head = head;
   }
-  insert(data) {
-    let newNode = new Node(data);
+  insert(value) {
+    let newNode = new Node(value);
     if (!this.head) {
+      // if there is no head
+      // the new node is the head
       this.head = newNode;
     } else {
+      // pointing newnode's next to this.head
       newNode.next = this.head;
       this.head = newNode;
     }
   }
+  // insert(value) {
+  //   let newNode = new Node(value);
+  //   if (!this.head) {
+  //     newNode.next = this.head;
+  //     this.head = newNode;
+  //   }
+  //     this.head = newNode;
+  // }
   size() {
     let count = 0;
     let node = this.head;
@@ -59,15 +70,69 @@ class LinkedList {
     }
     return node;
   }
-  getKth(){}
-  getKthToLast() {}
-  isEmpty() {}
-  clear() {
-    this.head = null
+  getKth(k) {
+    let node = this.head;
+    let count = 1;
+    while (node) {
+      if (k === count) return node;
+      count++;
+      node = node.next;
+    }
   }
-  toArray() {}
-  containsDuplicates() {}
+  getKthToLast(k) {
+    // (length - 1) - k
+    let nodeNum = this.size() - k;
+
+    let temp = this.head;
+    let count = 1;
+    while (temp) {
+      if (count === nodeNum) {
+        return temp;
+      }
+      count++;
+      temp = temp.next;
+    }
+  }
+  isEmpty() {
+    return this.head === null;
+  }
+  clear() {
+    this.head = null;
+  }
+  toArray() {
+    let array = [];
+    let node = this.head;
+    while (node) {
+      array.push(node.data);
+      node = node.next;
+    }
+    return array;
+  }
+  containsDuplicates() {
+    let obj = {};
+    let node = this.head;
+    while (node) {
+      if (!obj[node.data]) {
+        obj[node.data] += 1;
+        node = node.next;
+      } else {
+        obj[node.data] = 1;
+      }
+      for (let count in obj) {
+        if (obj[count] > 1) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }
+
+// let list = new LinkedList();
+// list.insert()
+// list.insert()
+// list.insert()
+// console.log(list)
 
 module.exports = {
   Node,
