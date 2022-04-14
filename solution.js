@@ -7,6 +7,22 @@ class Node {
   }
 }
 
+class LinkedList {
+  constructor(head = null) {
+    this.head = head;
+  }
+
+  insert(value) {
+    let nextNode = new Node(value);
+    if (!this.head) {
+      this.head = nextNode;
+    } else {
+      nextNode.next = this.head;
+      this.head = nextNode;
+    }
+  }
+}
+
 module.exports = {
   Node,
   LinkedList,
