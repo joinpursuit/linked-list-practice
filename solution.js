@@ -21,7 +21,29 @@ class LinkedList {
       this.head = nextNode;
     }
   }
+
+size () {
+  let sizeCount = 0;
+  let node = this.head;
+  while (node) {
+    //increment count
+    sizeCount++
+    nextNode = node.next;
+  }
+  return sizeCount
 }
+
+
+}
+
+//getting first element 
+
+getFirst() {
+  return this.head
+}
+
+
+
 
 module.exports = {
   Node,
