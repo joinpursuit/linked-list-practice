@@ -5,7 +5,7 @@ const { exportAllDeclaration, logicalExpression } = require("@babel/types");
 
 describe("Linked Lists", () => {
   let wordList, numList;
-  beforeAll(() => {
+  beforeEach(() => {
     wordList = new LinkedList();
     for (let word of words) {
       wordList.insert(word);
