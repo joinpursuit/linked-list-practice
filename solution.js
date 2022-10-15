@@ -22,18 +22,6 @@ class LinkedList {
     }
     return node;
   }
-  // insert(value) {
-  //   let nodeToInsert = new Node(value);
-  //   if (!this.head) {
-  //     this.head = nodeToInsert;
-  //     return;
-  //   }
-  //   let tempNode = this.head;
-  //   while (tempNode.next) {
-  //     tempNode = tempNode.next;
-  //   }
-  //   tempNode.next = nodeToInsert;
-  // }  COME BACK TO THIS LATER
 
   insert(data) {
     let newInsertNode = new Node(data);
@@ -86,11 +74,13 @@ class LinkedList {
       count++;
       node = node.next;
     }
+    console.log(node);
     return node;
   }
 
-  getKthTolast(kth) {
-    //come back tot his one too
+  getKthToLast(kth) {
+    let index = this.size(this) - kth;
+    return this.getKth(index);
   }
 
   isEmpty() {
