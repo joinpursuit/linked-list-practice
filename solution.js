@@ -95,6 +95,16 @@ class LinkedList {
   clear() {
     this.head = null;
   }
+
+  toArray() {
+    let node = this.head;
+    const array = [];
+    while (node) {
+      array.push(node.data);
+      node = node.next;
+    }
+    return array;
+  }
 }
 
 module.exports = {
