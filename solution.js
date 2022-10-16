@@ -12,7 +12,7 @@ class LinkedList {
     this.head = head;
   }
 
-  insert() {
+  insert(value) {
     let newNode = new Node(value);
     if (!this.head) {
       this.head = newNode;
@@ -30,6 +30,21 @@ class LinkedList {
       current = current.next;
     }
     return count;
+  }
+
+  delete(data) {
+    let currentNode = this.head;
+    let counter = 0;
+    while (currentNode.data !== data && currentNode.next) {
+      counter++;
+      currentNode = currentNode.next;
+    }
+    let deleteNode = currentNode;
+    currentNode = this.head;
+    for (let i = 1; i < counter; i++) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next = deleteNode.next;
   }
 }
 
