@@ -117,26 +117,22 @@ class LinkedList {
 
   containsDuplicates() {
     let current = this.head;
-    let nextCurrent = current.next;
-    let count = 0;
-    let length = this.size();
-    while (count < length && nextCurrent !== null){
-      if (current !== nextCurrent){
+    while (current) {
+      let currentData = current.data;
+      let nextCurrent = current.next;
+      while (nextCurrent) {
+        if (currentData === nextCurrent.data) {
+          nextCurrent = nextCurrent.next;
+          return true;
+        }
         nextCurrent = nextCurrent.next;
-      } else {
-        return true;
       }
-      count++;
+      current = current.next;
     }
     return false;
-   
   }
 
 }
-
-
-
-
 
 
 module.exports = {
