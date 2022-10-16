@@ -70,6 +70,18 @@ class LinkedList {
       node = node.next;
     }
   }
+
+  getKth(k) {
+    let node = this.head;
+    let count = 0;
+    while (node) {
+      count++;
+      if (count === k) {
+        return node;
+      }
+      node = node.next;
+    }
+  }
 }
 
 module.exports = {
