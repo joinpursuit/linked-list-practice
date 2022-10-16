@@ -14,9 +14,11 @@ class LinkedList {
 
   insert(value) {
     let insertValue = new Node(value);
+
     if (this.head !== null) {
       insertValue.next = this.head;
     }
+
     this.head = insertValue;
   }
 
@@ -32,21 +34,25 @@ class LinkedList {
     return sizeCount;
   }
 
-  delete(index) {
-    let currentNode = this.head;
-    let previousNode = null;
-    let indexCount = 0;
+  delete(key) {
+    let tempNode = this.head;
+    let prevNode = null;
 
-    if (index === 0) {
-      currentNode = currentNode.next;
-    } else {
-      while (indexCount < index) {
-        indexCount++;
-        previousNode = currentNode;
-        currentNode = currentNode.next;
-      }
-      previousNode.next = currentNode.next;
+    if (tempNode !== null && tempNode.data === key) {
+      this.head = tempNode.next;
+      return;
     }
+
+    while (tempNode !== null && tempNode.data !== key) {
+      prevNode = tempNode;
+      tempNode = tempNode.next;
+    }
+
+    if (tempNode === null) {
+      return;
+    }
+
+    prevNode.next = tempNode.next;
   }
 
   getFirst() {
@@ -93,17 +99,16 @@ class LinkedList {
   }
 
   getKthToLast(value) {
+    let currentLength = this.size();
     let currentNode = this.head;
-    let currentSize = this.size() - value;
-    let currentCount = 0;
+    let currentCount = 1;
 
-    while (currentNode) {
-      if (currentCount === currentSize) {
-        return currentNode;
-      }
+    while (currentCount !== currentLength - value) {
       currentCount++;
       currentNode = currentNode.next;
     }
+
+    return currentNode;
   }
 
   isEmpty() {
