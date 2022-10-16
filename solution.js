@@ -87,7 +87,13 @@ class LinkedList {
 
   // GET THE KTH ELEMENT TO THE LAST
   getKthToLast(k) {
-    let node = node
+    let node = this.head;
+    // console.log(this.size(), node, k)
+    for(let i = 1; i < (this.size() - k); i++) {
+      node = node.next
+      console.log(node)
+    }
+    return node;
   }
 
   // IS EMPTY
@@ -110,7 +116,25 @@ class LinkedList {
     }
     return array
   }
+
+  // CONTAINS DUPLICATES 
+containsDuplicates() {
+  let newObj = {};
+  let node = this.head;
+  while(node != null) {
+    if(!newObj[node.data]) {
+      newObj[node.data] = 1;
+      node = node.next;
+    } else {
+      return true;
+    }
+  }
+  return false;
 }
+}
+
+
+
 
 module.exports = {
   Node,
