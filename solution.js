@@ -82,6 +82,15 @@ class LinkedList {
       node = node.next;
     }
   }
+
+  getKthToLast(k) {
+    let index = this.size() - k;
+    return this.getKth(index);
+  }
+
+  isEmpty() {
+    return this.size() === 0;
+  }
 }
 
 module.exports = {
