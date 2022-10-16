@@ -73,6 +73,43 @@ class LinkedList {
     }
     return node;
   }
+
+  // GET THE KTH ELEMENT || GET AN ELEMENT AT A LINK
+  getKth(k) {
+    let current = this.head;
+    let count = 1;
+    while(current !== null && count < k) {
+      current = current.next;
+      count++
+    }
+    return current;
+  }
+
+  // GET THE KTH ELEMENT TO THE LAST
+  getKthToLast(k) {
+    let node = node
+  }
+
+  // IS EMPTY
+  isEmpty() {
+    return this.head ? false : true;
+  }
+
+  // CLEAR LINKEDLIST
+  clear() {
+    this.head = null
+  }
+
+  // CONVERT TO AN ARRAY
+  toArray() {
+    let array = [];
+    let node = this.head;
+    while(node != null) {
+      array.push(node.data);
+      node = node.next;
+    }
+    return array
+  }
 }
 
 module.exports = {
