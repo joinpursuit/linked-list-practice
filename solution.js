@@ -91,6 +91,10 @@ class LinkedList {
   isEmpty() {
     return this.size() === 0;
   }
+
+  clear() {
+    this.head = null;
+  }
 }
 
 module.exports = {
