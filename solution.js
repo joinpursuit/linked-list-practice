@@ -103,16 +103,25 @@ class LinkedList {
   getKth(value){
     let node = this.head;
     let count = 1;
-    while(count < value){
-      count ++
+    while(node){
+      if(count === value){
+        return node;
+      }
       node = node.next;
+    count++;
     }
-    return node;
+    return null;
   }
 
   getKthToLast(value){
-    let size = this.size() - value;
-    return this.getKth(size);
+    let length = this.size()
+    let node = this.head;
+    let count = 1;
+    while(count !== (length - value)){
+      count ++
+      node = node.next
+    }
+    return node
   }
 }
 
