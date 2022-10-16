@@ -99,6 +99,21 @@ class LinkedList {
     }
     return false;
   }
+
+  getKth(value){
+    let node = this.head;
+    let count = 1;
+    while(count < value){
+      count ++
+      node = node.next;
+    }
+    return node;
+  }
+
+  getKthToLast(value){
+    let size = this.size() - value;
+    return this.getKth(size);
+  }
 }
 
 module.exports = {
