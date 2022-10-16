@@ -68,8 +68,57 @@ class LinkedList {
       tempNode = tempNode.next;
     }
   }
+  getKth(kth) {
+    let node = this.head;
+    let count = 1;
+    while (count !== kth) {
+      count++;
+      node = node.next;
+    }
+    console.log(node);
+    return node;
+  }
 
-  
+  getKthToLast(kth) {
+    let index = this.size(this) - kth;
+    return this.getKth(index);
+  }
+
+  isEmpty() {
+    return !this.head;
+  }
+  clear() {
+    this.head = null;
+  }
+  toArray() {
+    let arr = [];
+    let tempNode = this.head;
+    while (tempNode) {
+      arr.push(tempNode.data);
+      tempNode = tempNode.next;
+    }
+    return arr;
+  }
+  containsDuplicates() {
+    let obj = {};
+    let tempNode = this.head;
+    while (tempNode) {
+      if (obj[tempNode.data]) {
+        obj[tempNode.data] += 1;
+      } else {
+        obj[tempNode.data] = 1;
+      }
+      tempNode = tempNode.next;
+    }
+//now check if any keys' value = more than 1 which means there are duplicates
+    for (let key in obj) {
+      if (obj[key] > 1) {
+        return true;
+      }
+    }
+
+    return false;
+  }
 }
 module.exports = {
   Node,
