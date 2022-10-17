@@ -1,6 +1,8 @@
 const { nums, words } = require("./data/data.js");
 
-console.log("github actions test");
+class Node {}
+
+class LinkedList {}
 
 module.exports = {
   Node,
