@@ -58,6 +58,7 @@ describe("Linked Lists", () => {
   });
 
   test("Retrieve kth from last element", () => {
+    
     expect(numList.getKthToLast(1).data).toEqual(2);
   });
 
