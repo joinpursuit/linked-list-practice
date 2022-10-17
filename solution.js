@@ -75,50 +75,21 @@ class LinkedList {
   getKth(position) {
     let node = this.head;
     let count = 1;
-    // [1 < 1  = node. ]
-    while (count < position) {//give me the length of the list.
+
+    while (count < position) {
       count++;
-      node = node.next; //goes down the node list
+      node = node.next;
     }
-return node
-
-  // let  node = this.head;
-    //reset to the start of the list.
-//count = 10 - 1 = 9  -- 8  
-//nodelist - 1 = first element 
-//
-// count = 10. 1 - list - 
-//position = 1
-//     for (let i = 1; i < position-1; i++) {//looping the list. 
-// //starting from first item on the list. - 
-// //keep looping if the num is less
-
-//       node = node.next
-//     }
-//     // i = 10
-
-
-//     return node;
-
-
-
-//10 > 1 = 9> 1   2 > 1 break loop - return node
-
-
-    // return count;
-    // return node;
-    //get the element at the given index.
-    //notice - the elements are reversed.
-    //loop through stop at index and return data
+    return node;
   }
 
-  getKthToLast(position){ 
+  getKthToLast(position) {
     let countBackwards = this.size() - position;
 
     let node = this.head;
     let count = 1;
-    while (node){
-      if (count === countBackwards){
+    while (node) {
+      if (count === countBackwards) {
         return node;
       }
       count++;
@@ -131,40 +102,30 @@ return node
   }
 
   toArray(data) {
-    let node = this.head; //starting node. {data: 0, next: null}
+    let node = this.head;
     let listArr = [];
-    //loop though all nodes
-    //push into array.
 
     while (node !== null) {
-      //if node is not empty. = meaning there is data/value there.
-      listArr.push(node.data); //push that value/node into array.
-      node = node.next; //goes down the node list
+      listArr.push(node.data);
+      node = node.next;
     }
-    //will stop the loop when hit the last node - since last node.next is gonna be null
+
     return listArr;
-    //
   }
 
   containsDuplicates(data) {
-    //return true or false;
-    //loop through all of the item in the list.
-    //how do we check for dup? how do we know if the value exist before?.
-    //maybe a counter?
-    //{1 : counter, 2 : counter}
     let node = this.head;
     const obj = {};
 
     while (node) {
-      if (obj[node.data]) {//if already exist - return true cuz u know it dups. 
+      if (obj[node.data]) {
         return true;
       } else {
-        obj[node.data] = 1;// make the obj and add 1. 
+        obj[node.data] = 1;
       }
       node = node.next;
     }
     return false;
-
   }
 }
 
