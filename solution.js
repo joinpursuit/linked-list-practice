@@ -73,7 +73,7 @@ class LinkedList {
     return node;
   }
 
-  getK(k) {
+  getKth(k) {
     let node = this.head;
     for (let i = k - 1; i > 0; i--) {
       node = node.next;
@@ -81,14 +81,12 @@ class LinkedList {
     return node;
   }
 
-  getKToLast(k) {
-    //  console.log(k)
+  getKthToLast(k) {
      let node = this.head;
      let index = this.size() - k;
      for(let i = index - 1; i > 0; i--){
        node = node.next;
      }
-    //  console.log(node)
      return node;
   }
 
