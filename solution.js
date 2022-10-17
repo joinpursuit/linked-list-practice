@@ -105,6 +105,15 @@ class LinkedList {
     }
     return array;
   }
+
+  containsDuplicates() {
+    const array = this.toArray();
+    let set = new Set(array);
+    if (set.size == array.length) {
+      return false;
+    }
+    return true;
+  }
 }
 
 module.exports = {
