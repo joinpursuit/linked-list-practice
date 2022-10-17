@@ -120,7 +120,11 @@ class LinkedList{
   }
   //   - `containsDuplicates` check for duplicates - return true if contains duplicates, false if not
   containsDuplicates(){
-    this.toArray()
+    let set = new Set()
+    for(let i = 0; i < this.toArray().length; i++){
+      set.add(this.toArray()[i])
+    }
+   return  this.toArray().length !== set.size 
   }
 }
 
