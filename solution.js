@@ -96,7 +96,7 @@ class LinkedList {
   }
 
   isEmpty() {
-    return !this.head;
+    return this.head === null;
   }
 
   toArray() {
