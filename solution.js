@@ -17,12 +17,7 @@ class LinkedList {
       this.head = nodeToInsert;
     }
   }
-  getFirstAndRemove() {
-    let oldHead = this.head;
-    this.head = this.head.next;
 
-    return oldHead;
-  }
   size() {
     let count = 0;
     let node = this.head;
@@ -66,6 +61,47 @@ class LinkedList {
       node = node.next;
     }
     return node;
+  }
+  getKth(key) {
+    let current = this.head;
+    let count = 0;
+    while (current != null) {
+      if (count == key) return current.data;
+
+      count++;
+      current = current.next;
+    }
+  }
+  isEmpty() {
+    if (!this.head) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  clear() {
+    this.head = null;
+  }
+  toArray() {
+    let array = [];
+    let data = this.head;
+    while (data) {
+      array.push(data.data);
+      data = data.next;
+    }
+
+    return array;
+  }
+  containsDuplicates(head) {
+    while (head != null) {
+      let selectNode = head.next;
+      while (selectNode != null) {
+        if (head.data == selectNode.data) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 }
 
