@@ -62,15 +62,20 @@ class LinkedList {
     }
     return node;
   }
-  getKth(key) {
+  getKth(val) {
     let current = this.head;
-    let count = 0;
-    while (current != null) {
-      if (count == key) return current.data;
-
+    let count = 1;
+    while (current <= val) {
       count++;
       current = current.next;
     }
+    return current;
+  }
+  getKthToLast(val) {
+    let size = this.size() - val;
+    //console.log(size);
+    //console.log(this.getKth(size));
+    return this.getKth(size);
   }
   isEmpty() {
     if (!this.head) {
@@ -93,15 +98,20 @@ class LinkedList {
     return array;
   }
   containsDuplicates(head) {
-    while (head != null) {
-      let selectNode = head.next;
-      while (selectNode != null) {
-        if (head.data == selectNode.data) {
-          return true;
-        }
+    let hasDupes = false;
+    let dupe = {};
+    let selectNode = this.head;
+    while (selectNode != null) {
+      if (dupe[selectNode.data]) {
+        hasDupes = true;
+        return hasDupes;
+      } else {
+        dupe[selectNode.data] = 1;
+        selectNode = selectNode.next;
       }
     }
-    return false;
+
+    return hasDupes;
   }
 }
 
