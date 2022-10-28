@@ -65,12 +65,22 @@ class LinkedList {
     return this.head;
   }
 
-  // Retrieve the last element
+  // Retrieve the last element [ok]
   getLast() {
     let node = this.head;
     if (!this.head) return null;
     // Keep iterating until the last node
     while (node.next) {
+      node = node.next;
+    }
+    return node;
+  }
+
+  // Find an element by key [ok]
+  search(key) {
+    let node = this.head;
+    //
+    while (node !== null && node.data !== key) {
       node = node.next;
     }
     return node;
