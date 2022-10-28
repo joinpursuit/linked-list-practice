@@ -15,32 +15,65 @@ class LinkedList {
     this.head = head;
   }
 
-  // Add to the linked list using an insert method
+  // Add to the linked list using an insert method [ok]
   insert(data) {
-    // Creating a new node
-    // Validating if it's the head, then assign the head, otherwise assing the next
-    let newNode = new Node(data);
-    if (this.head) {
-      this.head = newNode;
-    } else {
-      newNode.next = this.head;
-      this.head = newNode;
+    // Creating a new nodes
+    let insertNode = new Node(data);
+    
+    // Validating if the head exist, then assign the next node
+    if (this.head !== null) {
+      insertNode.next = this.head;
     }
+    this.head = insertNode;
   }
 
-  
+  // Count the length of the linked list [ok]
+  size() {
+    let count = 0;
+    let node = this.head;
+    // Validating While the node exist, then count them 
+    while (node) {
+      // Increment de count and pass to the next
+      count++;
+      node = node.next;
+    }
+    return count;
+  }
+
+  // Delete from the linked list by key [ok]
+  delete(data) {
+    
+    let node = this.head;
+    let counter = 0;
+    //
+    while (node.data !== data && node.next) {
+      counter++;
+      node = node.next;
+    }
+    //
+    let foundNode = node;
+    node = this.head;
+    for (let i = 1; i < counter; i++) {
+      node = node.next;
+    }
+    node.next = foundNode.next;
+  }
+
 
  
 }
 
-const firstNode = new Node(1);
-const secondNode = new Node(2);
-firstNode.next = secondNode;
+// const firstNode = new Node(1);
+// const secondNode = new Node(2);
+// firstNode.next = secondNode;
 
-console.log(firstNode);
+// console.log(firstNode);
 
-const firstList = new LinkedList(firstNode);
+const firstList = new LinkedList(nums);
 console.log(firstList);
+
+firstList.size;
+console.log(firstList.size);
 
 
 
