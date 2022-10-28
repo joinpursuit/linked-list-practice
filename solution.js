@@ -3,7 +3,7 @@ const { nums, words } = require("./data/data.js");
 // Tests:
 // Can create a new node [ok]
 class Node {
-  constructor(data, next) {
+  constructor(data, next = null) {
     this.data = data;
     this.next = next;
   }
@@ -11,21 +11,24 @@ class Node {
 
 // Can create a new linked list [ok]
 class LinkedList {
-  constructor(head) {
+  constructor(head = null) {
     this.head = head;
   }
 
   // Add to the linked list using an insert method
   insert(data) {
     // Creating a new node
+    // Validating if it's the head, then assign the head, otherwise assing the next
     let newNode = new Node(data);
-    if (!this.head) {
+    if (this.head) {
       this.head = newNode;
     } else {
       newNode.next = this.head;
       this.head = newNode;
     }
   }
+
+  
 
  
 }
