@@ -61,7 +61,19 @@ class LinkedList {
 
   // Retrieve the first element [ok]
   getFirst() {
+    // Returning the head
     return this.head;
+  }
+
+  // Retrieve the last element
+  getLast() {
+    let node = this.head;
+    if (!this.head) return null;
+    // Keep iterating until the last node
+    while (node.next) {
+      node = node.next;
+    }
+    return node;
   }
  
 }
