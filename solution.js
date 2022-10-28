@@ -59,7 +59,10 @@ class LinkedList {
     node.next = foundNode.next;
   }
 
-
+  // Retrieve the first element [ok]
+  getFirst() {
+    return this.head;
+  }
  
 }
 
