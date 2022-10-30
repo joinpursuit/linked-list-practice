@@ -79,11 +79,48 @@ class LinkedList {
   // Find an element by key [ok]
   search(key) {
     let node = this.head;
-    //
+    // 
     while (node !== null && node.data !== key) {
       node = node.next;
     }
     return node;
+  }
+
+  // Retrieve kth element [ok]
+  getKth(val) {
+    //
+    let currentNode = this.head;
+    let currentCount = 1;
+    // 
+    while (currentCount < val) {
+      currentCount++;
+      currentNode = currentNode.next;
+    }
+    return currentNode;
+  }
+
+  // Retrieve kth element
+  getKthToLast(val) {
+    let currentLength = this.size();
+    let currentNode = this.head;
+    let currentCount = 1;
+
+    while (currentCount !== currentLength - val) {
+      currentCount++;
+      currentNode = currentNode.next;
+    }
+
+    return currentNode;
+  }
+
+  // Clear the linked list
+  isEmpty() {
+    return (this.size<0) ? true : false;
+  }
+
+  // Clear the linked list
+  clear() {
+    this.head = null;
   }
  
 }
