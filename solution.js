@@ -45,7 +45,7 @@ class LinkedList {
     
     let node = this.head;
     let counter = 0;
-    //
+    // Validating
     while (node.data !== data && node.next) {
       counter++;
       node = node.next;
@@ -115,13 +115,29 @@ class LinkedList {
 
   // Clear the linked list
   isEmpty() {
-    return (this.size<0) ? true : false;
+    return !this.size();
   }
 
   // Clear the linked list
   clear() {
     this.head = null;
   }
+
+  // Convert data from linked lists into an array
+  toArray() {
+    // Creating a new array
+    const arr = [];
+    let currentNode = this.head;
+    // Iterate over the list, and push the nodes to the array
+    while (currentNode) {
+      arr.push(currentNode.data);
+      currentNode = currentNode.next;
+    }
+    return arr;
+  }
+
+
+  
  
 }
 
