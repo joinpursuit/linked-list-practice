@@ -113,9 +113,9 @@ class LinkedList {
     return currentNode;
   }
 
-  // Clear the linked list
+  // Check if list is empty
   isEmpty() {
-    return !this.size();
+    return this.size() ? false : true;
   }
 
   // Clear the linked list
