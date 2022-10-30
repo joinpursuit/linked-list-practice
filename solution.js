@@ -115,11 +115,13 @@ class LinkedList {
 
   // Check if list is empty
   isEmpty() {
+    // Validating the length of the list
     return this.size() ? false : true;
   }
 
   // Clear the linked list
   clear() {
+    // Unlink the head from the nodes
     this.head = null;
   }
 
@@ -136,7 +138,21 @@ class LinkedList {
     return arr;
   }
 
-
+  containsDuplicates() {
+    let node = this.head;
+    const duplicates = {};
+    // Check for the nodes
+    while (node) {
+      if (duplicates[node.data]) {
+        return true;
+      } else {
+        duplicates[node.data] = 1;
+      }
+      node = node.next;
+    }
+    return false;
+  }
+  
   
  
 }
