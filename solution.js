@@ -19,11 +19,12 @@ class LinkedList {
   }
 
   size() {
-    let pointer = this.head;
-    let count = 0;
-    while (pointer != null) {
+    let node = this.head;
+    if (this.head == null) return 0;
+    let count = 1;
+    while (node.next != null) {
       count++;
-      pointer = pointer.next;
+      node = node.next;
     }
     return count;
   }
@@ -35,6 +36,7 @@ class LinkedList {
       if (currentNode.data == key) {
         const nextNode = currentNode.next;
         prevNode.next = nextNode;
+        break;
       }
       prevNode = currentNode;
       currentNode = currentNode.next;
@@ -51,6 +53,75 @@ class LinkedList {
       node = node.next;
     }
     return node;
+  }
+
+  search(key) {
+    let node = this.head;
+    while (node.next != null) {
+      if (node.data === key) {
+        return node;
+      }
+      node = node.next;
+    }
+  }
+
+  getKth(k) {
+    let count = 1;
+    let node = this.head;
+    while (node.next != null) {
+      if (count === k) {
+        return node;
+      }
+      count++;
+      node = node.next;
+    }
+  }
+
+  getKthToLast(k) {
+    let size = this.size();
+    // size 10, k = 3, size - count  + 1  == k
+    let count = 1;
+    let node = this.head;
+    while (node.next != null) {
+      if (size - k + 1 == k) {
+        return node;
+      }
+      node = node.next;
+    }
+  }
+
+  isEmpty() {
+    return this.head == null;
+  }
+
+  clear() {
+    this.head = null;
+  }
+
+  toArray() {
+    let arr = [];
+    let node = this.head;
+    while (node.next != null) {
+      arr.push(node.data);
+      node = node.next;
+    }
+    if (node.next === null) arr.push(node.data);
+    return arr;
+  }
+
+  containsDuplicates() {
+    let arr = [];
+    let node = this.head;
+    while (node.next != null) {
+      if (!arr.includes(node.data)) {
+        arr.push(node.data);
+        node = node.next;
+      } else {
+        return true;
+      }
+    }
+
+    return arr.includes(node.data);
   }
 }
 
