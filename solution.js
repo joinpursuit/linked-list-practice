@@ -79,13 +79,13 @@ class LinkedList {
 
   getKthToLast(k) {
     let size = this.size();
-    // size 10, k = 3, size - count  + 1  == k
-    let count = 1;
     let node = this.head;
+    let count = 1;
     while (node.next != null) {
-      if (size - k + 1 == k) {
+      if (k == size - count) {
         return node;
       }
+      count++;
       node = node.next;
     }
   }
@@ -124,6 +124,15 @@ class LinkedList {
     return arr.includes(node.data);
   }
 }
+
+// const nList = new LinkedList();
+// for (let num of nums) {
+//   console.log(num);
+//   nList.insert(num);
+// }
+
+// console.log("first", nList.getFirst());
+// console.log("last", nList.getLast());
 
 module.exports = {
   Node,
